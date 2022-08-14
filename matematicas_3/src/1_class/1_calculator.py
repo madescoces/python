@@ -1,0 +1,10 @@
+first = int(input("Enter the first number: "))
+second = int(input("Enter the first number: "))
+
+print(f"{first} + {second} = " + str(first + second))
+print(f"{first} - {second} = " + str(first - second))
+print(f"{first} * {second} = " + str(first * second))
+print(f"{first} / {second} = " + str(first / second))
+print(f"{first} % {second} = " + str(first % second))
+print(f"{first} prom {second} = " + str((first + second)/2))
+print(f"{first}^2 / {second}/2 = " + str(first**2 / (second/2)))
