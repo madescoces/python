@@ -1,0 +1,6 @@
+big = int(input("Enter any natural number > 1: "))
+low = int(input(f"Enter any natural number lower of {big}: "))
+myRange = list(range(low,big))
+print(myRange)
+myRange.reverse()
+print(myRange)
