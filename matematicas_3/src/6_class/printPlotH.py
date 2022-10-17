@@ -1,3 +1,5 @@
+from tkinter import RIGHT
+from matplotlib.offsetbox import PaddedBox
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -14,9 +16,9 @@ def printPlot(etiquetas, valores, varWidth=0.65, **kwargs):
         anchoFigura = kwargs['ancho']        
 
     # creacion del gráfico a mostrar
-    fig = plt.figure(figsize=(anchoFigura,altoFigura))
+    fig = plt.figure(figsize=(anchoFigura,altoFigura) ) # constrained_layout=True --> sirve para ajustar al marco
     ax = fig.add_subplot(111)
-
+    
     # grafico de barras horizontales
     ax.barh( etiquetas, valores, varWidth)
 
@@ -49,8 +51,8 @@ def printPlot(etiquetas, valores, varWidth=0.65, **kwargs):
                 alpha = 0.85 )
 
     # Ajuste para que la figura no se escape del limite
-    fig.subplots_adjust(left=0.2)
-
+    fig.subplots_adjust(left=0.18)
+    
     # Wattermark
     fig.text(0.88, 0.14, '(c) Pablo Daniel Foglia', fontsize = 12,
             color ='grey', ha ='right', va ='bottom',
@@ -62,5 +64,7 @@ def printPlot(etiquetas, valores, varWidth=0.65, **kwargs):
                 "  " + str(round(i.get_width(), 2)),
                 fontsize = 6, fontweight ='regular',
                 color ='grey' )
+
+    
 
     plt.show()
