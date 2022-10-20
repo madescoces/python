@@ -2,7 +2,7 @@ import networkx as nx
 import numpy as np
 from matplotlib import pyplot as plt
 from prismShape import *
-from print import *
+from printPlot import *
 from dijkstraColor import *
 
 # Solamente para que no salgan los warnings. no se de que pero bue...
@@ -14,7 +14,7 @@ fig = plt.figure(figsize=(10,8), dpi=72)
 #Generación del grafo vacío.
 grafo = nx.Graph()
 nodos = list(map(chr, np.arange(97, 111)))
-pos = prismShape(nodos)
+pos = prismShape(nodos, lines=3)
 eWeights = [    ('a','b',6),('a','c',9),('a','d',3),('b','c',10),('b','e',12),('c','e',3),('c','f',2),
                 ('c','d',4),('d','f',15),('d','g',10),('e','f',8),('e','h',4),('e','i',11),('f','g',9),
                 ('f','i',10),('g','j',13),('h','i',7),('h','k',20),('h','l',11),('i','l',11),('i','j',15),
@@ -50,16 +50,16 @@ nx.draw_networkx_edge_labels(
 draw()
 
 
-start = 1.25
+start = 0.25
 squareText("Radio:", nx.radius(grafo),x=-0.5,y=start)
 squareText("Diámetro:", nx.diameter(grafo),x=-0.5,y=start-0.15)
 squareText("Centro:", nx.center(grafo),x=-0.5,y=start-0.15*2)
 squareText("Periferia:", nx.periphery(grafo),x=-0.5,y=start-0.15*3)
 squareText("Densidad:", nx.density(grafo),x=-0.5,y=start-0.15*4)
 squareText("Excentricidad:", nx.eccentricity(grafo),x=-0.5,y=start-0.15*5)
-print('Costos en miles de dólares entre nodos', margin=True)
+printPlot('Costos en miles de dólares entre nodos', margin=True)
 
 changeDijkstraPathColor(grafo,nx.algorithms.dijkstra_path( grafo,'n','a' ))
 squareText("Costo total en USD: ", sumDijkstraPath(grafo,nx.algorithms.dijkstra_path( grafo,'n','a' ))*1000,x=-0.5,y=0.75)
 draw()   
-print('Red más económica entre los nodos (A,N)', margin=True)
+printPlot('Red más económica entre los nodos (A,N)', margin=True)
