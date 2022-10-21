@@ -99,6 +99,54 @@ class Grafo():
     
     def radio(self):
         try:
+            radio = nx.radius(self._G_)
+            return radio
+        
+        except nx.NetworkXException as e:
+            print(f"Imposible calcular el radio, motivo: {e}")
+    
+    def diametro(self):
+        try:    
+           diam = nx.diameter(self._G_)
+           return diam
+
+        except nx.NetworkXException as e:
+            print(f"Imposible calcular el diámetro, motivo: {e}")
+
+    def excentricidad(self):
+        try:
+            ecc = nx.eccentricity(self._G_)
+            return ecc
+
+        except nx.NetworkXException as e:
+            print(f"Imposible calcular excentricidad, motivo: {e}")
+    
+    def centro(self):
+        try:
+            centro = nx.center(self._G_)
+            return centro
+
+        except nx.NetworkXException as e:
+            print(f"Imposible calcular el centro, motivo: {e}")
+    
+    def periferia(self):
+        try:
+            per = self.listaPrint(nx.periphery(self._G_))
+            return per
+
+        except nx.NetworkXException as e:
+            print(f"Imposible calcular periferia, motivo: {e}")
+    
+    def densidad(self):
+        try:
+            den = nx.density(self._G_)
+            return den
+    
+        except nx.NetworkXException as e:
+            print(f"Imposible calcular densidad, motivo: {e}")
+
+    def radio(self):
+        try:
             print(f"\nRadio del grafo: {nx.radius(self._G_)}")
         
         except nx.NetworkXException as e:
